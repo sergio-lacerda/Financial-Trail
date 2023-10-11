@@ -89,6 +89,31 @@ namespace FinancialTrail.Models
             return new Dividends();
         }
 
+        public async Task<HistoricalPriceBase> getHistoricalPrice()
+        {
+            HttpClient _httpClient = new HttpClient();
+            string endPoint = _uriBase + $"/v3/historical-price-full/{Ticker}?apikey={_apiKey}";
+
+            _httpClient.BaseAddress = new Uri(_uriBase);
+            _httpClient.DefaultRequestHeaders.Accept.Clear();
+            _httpClient.DefaultRequestHeaders.Accept.Add(
+                new MediaTypeWithQualityHeaderValue("application/json")
+            );
+
+            try
+            {
+                HttpResponseMessage response = await _httpClient.GetAsync(endPoint);
+                if (response.IsSuccessStatusCode)
+                {
+                    var historical = await response.Content.ReadFromJsonAsync<HistoricalPriceBase>();
+                    return historical;
+                }
+            }
+            catch (Exception) { }
+
+            return new HistoricalPriceBase();
+        }
+
 
 
 

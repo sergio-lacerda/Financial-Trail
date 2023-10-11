@@ -28,7 +28,7 @@ body {
 }
 
 .content-container {
-    background-color: crimson;
+    /*background-color: crimson;*/
     width: 100%;
 }
 
@@ -57,9 +57,9 @@ body {
     min-height: 400px;
 }
 
-#price_chart {
+#price_chart, #historicalprice_chart {
     width: 100%;
-    height: 410px;    
+    height: 410px;
 }
 
 

@@ -46,6 +46,7 @@
 
     <!-- Dividends historical and prices chart -->
     <div class="d-flex justify-content-between flex-column flex-lg-row mb-3">
+        <!-- Dividends historical -->
         <div class="pv-border w25 me-2">
             <div class="pt-3 ps-2 pe-2 h5 d-flex align-items-baseline">
                 <svg bootstrap-icon="PiggyBank" width="24" height="24" aria-label="Alarms"></svg>
@@ -86,18 +87,26 @@
 
         </div>
 
+        <!-- Price (Intraday) chart -->
         <div class="pv-border w74">
             <div class="pt-3 ps-2 pe-2 h5 d-flex align-items-baseline">
                 <svg bootstrap-icon="Coin" width="24" height="24" aria-label="Alarms"></svg>
                 &nbsp; Intraday Indicators
             </div>
             <hr />
-            <div class="p-2"><div id="price_chart"></div></div>
-            
+            <div class="p-2"><div id="price_chart"></div></div>            
         </div>
     </div>
 
-
+    <!-- Stock Historical Price -->
+    <div class="pv-border mt-2 mb-3">
+        <div class="pt-3 ps-2 pe-2 h5 d-flex align-items-baseline">            
+            <svg bootstrap-icon="GraphUpArrow" width="24" height="24" aria-label="Alarms"></svg>
+            &nbsp; Stock Historical Price
+        </div>
+        <hr />
+        <div class="p-2"><div id="historicalprice_chart"></div></div>
+    </div>
 
     ...
 </div>
