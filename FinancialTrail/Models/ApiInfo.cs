@@ -9,6 +9,6 @@ namespace FinancialTrail.Models
     {
         public static string _ApiKey;
         public static string _ApiUriBase;
-        public static string Ticker { get; set; } = string.Empty;
+        public static string _Ticker { get; set; } = "AAPL";
     }
 }

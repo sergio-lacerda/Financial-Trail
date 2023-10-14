@@ -6,16 +6,17 @@ namespace FinancialTrail.Models
     {
         private readonly string _uriBase;
         private readonly string _apiKey;        
-        public string Ticker { get; set; } = "AAPL";
+        private string Ticker;
 
         public ApiCommand() 
         {
             _uriBase = ApiInfo._ApiUriBase;
-            _apiKey = ApiInfo._ApiKey;           
+            _apiKey = ApiInfo._ApiKey;             
         }
 
         public async Task<CompanyProfile> getCompanyProfile()
         {
+            Ticker = ApiInfo._Ticker;
             HttpClient _httpClient = new HttpClient();
             string endPoint = _uriBase + $"/v3/profile/{Ticker}?apikey={_apiKey}";
 
@@ -41,6 +42,7 @@ namespace FinancialTrail.Models
 
         public async Task<IEnumerable<IntradayIndicator>> getIntraDayIndicators()
         {
+            Ticker = ApiInfo._Ticker;
             HttpClient _httpClient = new HttpClient();
             string endPoint = _uriBase + $"/v3/technical_indicator/15min/{Ticker}?period=10&type=ema&apikey={_apiKey}";
 
@@ -66,6 +68,7 @@ namespace FinancialTrail.Models
 
         public async Task<Dividends> getDividendsHistorical()
         {
+            Ticker = ApiInfo._Ticker;
             HttpClient _httpClient = new HttpClient();
             string endPoint = _uriBase + $"/v3/historical-price-full/stock_dividend/{Ticker}?apikey={_apiKey}";
 
@@ -91,6 +94,7 @@ namespace FinancialTrail.Models
 
         public async Task<HistoricalPriceBase> getHistoricalPrice()
         {
+            Ticker = ApiInfo._Ticker;
             HttpClient _httpClient = new HttpClient();
             string endPoint = _uriBase + $"/v3/historical-price-full/{Ticker}?apikey={_apiKey}";
 
@@ -113,11 +117,6 @@ namespace FinancialTrail.Models
 
             return new HistoricalPriceBase();
         }
-
-
-
-
-
 
     }
 }

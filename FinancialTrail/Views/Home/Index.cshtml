@@ -11,24 +11,30 @@
                 <span class="input-group-text">Ticker</span>
                 <input name="inTicker" type="text" class="form-control">
             </div>
-            <a asp-action="Search" class="btn btn-success ms-2 ps-3 pe-3">Search</a>
+            <a asp-action="Search" class="btn btn-success ms-2 ps-3 pe-3 bg-green">Search</a>
         </div>
-    </div> 
+    </div>
 
     <!-- Company profile information-->
     <div class="pv-border mt-2 mb-3">
-        <div class="pt-3 ps-2 pe-2 h5 d-flex align-items-baseline">
+        <div class="pt-3 pb-3 ps-2 pe-2 h5 d-flex align-items-baseline pv-border-title">
             <svg bootstrap-icon="Building" width="24" height="24" aria-label="Alarms"></svg>
             &nbsp; Company Profile
         </div>
-        <hr />
         <div>
             <div class="d-flex align-items-center mb-3 ps-2 pe-2 justify-content-center justify-content-lg-start">
                 @{
                     CompanyProfile cp = ViewData["CompanyData"] as CompanyProfile;
 
-                    <img class="p-2" src="@cp.image" height="80" alt="Company Logo" style="background-color:silver; border-radius:10px;" />
-                    <span class="display-5 ps-2">@cp.companyName</span>
+                    if (cp.companyName != null)
+                    {
+                        <img class="p-2 mt-2" src="@cp.image" height="80" alt="Company Logo" style="background-color:silver; border-radius:10px;" />
+                        <span class="display-5 ps-2">@cp.companyName</span>
+                    }
+                    else
+                    {
+                        <span class="display-5 ps-2">No data available</span>
+                    }                    
                 }
             </div>
             <div class="pb-3 ps-2 pe-2 text-center text-lg-start">
@@ -39,20 +45,28 @@
                 <b class="ps-3">Exchange:</b> <span>@cp.exchangeShortName</span>
                 <b class="ps-3">Currency:</b> <span>@cp.currency</span>
                 <b class="ps-3">Price:</b> <span>@cp.price</span>
-                <b class="ps-3">Website:</b> <span><a href="@cp.website" target="_blank">@cp.website</a></span>
+                <b class="ps-3">Website:</b> <span><a href="@cp.website" target="_blank" class="CompanyUrl">@cp.website</a></span>
             </div>
         </div>
     </div>
 
-    <!-- Dividends historical and prices chart -->
+    <!-- Price (Intraday) chart -->
+    <div class="pv-border mt-2 mb-3">
+        <div class="pt-3 pb-3 ps-2 pe-2 h5 d-flex align-items-baseline pv-border-title">
+            <svg bootstrap-icon="Coin" width="24" height="24" aria-label="Alarms"></svg>
+            &nbsp; Intraday Indicators
+        </div>
+        <div class="p-2 mt-2"><div id="price_chart"></div></div>
+    </div>
+
+    <!-- Dividends historical table and dividends by year chart -->
     <div class="d-flex justify-content-between flex-column flex-lg-row mb-3">
         <!-- Dividends historical -->
         <div class="pv-border w25 me-2">
-            <div class="pt-3 ps-2 pe-2 h5 d-flex align-items-baseline">
+            <div class="pt-3 pb-3 ps-2 pe-2 h5 d-flex align-items-baseline pv-border-title">
                 <svg bootstrap-icon="PiggyBank" width="24" height="24" aria-label="Alarms"></svg>
                 &nbsp; Dividends Historical
             </div>
-            <hr />
             <table class="table table-striped ms-2 me-2" style="max-width:95%;">
                 <thead>
                     <tr>
@@ -64,70 +78,57 @@
                     @{
                         Dividends divHist = ViewData["DividendsHistorical"] as Dividends;
                         int lines = 0;
-                        foreach (var item in divHist.Historical)
+                        if (divHist.Historical != null)
+                            foreach (var item in divHist.Historical)
+                            {
+                                lines++;
+                                <tr>
+                                    <td>
+                                        @{
+                                            string payDay = item.PaymentDate;
+                                            string[] dateParts = payDay.Split("-");
+                                            if (dateParts.Count() == 3)
+                                                payDay = $"{dateParts[1]}/{dateParts[2]}/{dateParts[0]}";
+                                        }
+                                        @payDay
+                                    </td>
+                                    <td class="text-end">@item.Dividend</td>
+                                </tr>
+                                if (lines >= 9) break;
+                            }
+                        else
                         {
-                            lines++;
-                            <tr>
-                                <td>
-                                    @{
-                                        string payDay = item.PaymentDate;
-                                        string[] dateParts = payDay.Split("-");
-                                        if (dateParts.Count() == 3)
-                                            payDay = $"{dateParts[1]}/{dateParts[2]}/{dateParts[0]}";
-                                     }
-                                     @payDay
-                                </td>
-                                <td class="text-end">@item.Dividend</td>
-                            </tr>
-                            if (lines >= 9) break;
+                            <tr><td>No data available</td><td></td></tr>
                         }
                     }
-                </tbody>                
+                </tbody>
             </table>
-
         </div>
 
-        <!-- Price (Intraday) chart -->
+        <!-- Dividends by Year -->
         <div class="pv-border w74">
-            <div class="pt-3 ps-2 pe-2 h5 d-flex align-items-baseline">
-                <svg bootstrap-icon="Coin" width="24" height="24" aria-label="Alarms"></svg>
-                &nbsp; Intraday Indicators
+            <div class="pt-3 pb-3 ps-2 pe-2 h5 d-flex align-items-baseline pv-border-title">
+                <svg bootstrap-icon="PiggyBank" width="24" height="24" aria-label="Alarms"></svg>
+                &nbsp; Dividends By Year
             </div>
-            <hr />
-            <div class="p-2"><div id="price_chart"></div></div>            
+            <div class="p-2"><div id="dividendsByYear_chart"></div></div>
         </div>
     </div>
 
     <!-- Stock Historical Price -->
     <div class="pv-border mt-2 mb-3">
-        <div class="pt-3 ps-2 pe-2 h5 d-flex align-items-baseline">            
+        <div class="pt-3 pb-3 ps-2 pe-2 h5 d-flex align-items-baseline pv-border-title">
             <svg bootstrap-icon="GraphUpArrow" width="24" height="24" aria-label="Alarms"></svg>
             &nbsp; Stock Historical Price
         </div>
-        <hr />
         <div class="p-2"><div id="historicalprice_chart"></div></div>
     </div>
 
-    ...
+
+
+    
 </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-@{
-    
-}
-
-@{
-    List<IntradayIndicator> iInd = ViewData["IntradayIndicators"] as List<IntradayIndicator>;
-}
-
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
