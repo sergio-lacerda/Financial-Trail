@@ -120,7 +120,7 @@ async function drawLineChart() {
 
 /***************** Getting Dividends by Year Data ********************/
 async function getDividendsByYear() {
-    let _divByYear = [];
+    let _divByYear = [['Year', 'Total'], ['No data available', 0]];
 
     try {
         const response = await $.ajax({
@@ -128,10 +128,10 @@ async function getDividendsByYear() {
             url: "/Home/GetDividendsByYear",
             dataType: "json"
         });
-        
-        if (response != null) {
-            _divByYear = [];
 
+        if (response != null && response.length > 0) {
+            _divByYear = [];
+            
             let limit = response.length > 10 ? 10 : response.length;
 
             for (let i = 0; i < limit; i++) {
@@ -145,12 +145,12 @@ async function getDividendsByYear() {
             }
 
             _divByYear.reverse();
-            _divByYear.unshift(['Year', 'Total', { role: 'annotation' }]);
+            _divByYear.unshift(['Year', 'Total', { role: 'annotation' }]);            
         }
-                
         return _divByYear;
+            
 
-    } catch (error) {
+    } catch (error) {        
         _divByYear = [['Year', 'Total'], ['No data available', 0]];
         return _divByYear;
     }

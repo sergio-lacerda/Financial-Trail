@@ -4,16 +4,18 @@
 
 <div class="content-container ps-2 pe-2">
     <!-- Input to search/filter Stock Ticker -->
-    <div class="mb-4 mt-4 inputTicker">
-        <label for="basic-url" class="form-label h5">Enter a ticker to search</label>
-        <div class="mt-2 d-flex">
-            <div class="input-group">
-                <span class="input-group-text">Ticker</span>
-                <input name="inTicker" type="text" class="form-control">
+    <form>
+        <div class="mb-4 mt-4 inputTicker">
+            <label for="basic-url" class="form-label h5">Enter a ticker to search</label>
+            <div class="mt-2 d-flex">
+                <div class="input-group">
+                    <span class="input-group-text">Ticker</span>
+                    <input name="inTicker" type="text" class="form-control text-uppercase">
+                </div>
+                <button asp-action="Search" class="btn btn-success ms-2 ps-3 pe-3 bg-green">Search</button>
             </div>
-            <a asp-action="Search" class="btn btn-success ms-2 ps-3 pe-3 bg-green">Search</a>
         </div>
-    </div>
+    </form>
 
     <!-- Company profile information-->
     <div class="pv-border mt-2 mb-3">
@@ -28,13 +30,13 @@
 
                     if (cp.companyName != null)
                     {
-                        <img class="p-2 mt-2" src="@cp.image" height="80" alt="Company Logo" style="background-color:silver; border-radius:10px;" />
+                        <img class="ms-2 mt-2" src="@cp.image" height="80" alt="Company Logo" style="background-color:silver; border-radius:10px;" />
                         <span class="display-5 ps-2">@cp.companyName</span>
                     }
                     else
                     {
                         <span class="display-5 ps-2">No data available</span>
-                    }                    
+                    }
                 }
             </div>
             <div class="pb-3 ps-2 pe-2 text-center text-lg-start">
@@ -89,6 +91,7 @@
                                             string[] dateParts = payDay.Split("-");
                                             if (dateParts.Count() == 3)
                                                 payDay = $"{dateParts[1]}/{dateParts[2]}/{dateParts[0]}";
+                                            payDay = payDay.Length==0 ? "Not informed" : payDay;
                                         }
                                         @payDay
                                     </td>
@@ -126,7 +129,7 @@
 
 
 
-    
+
 </div>
 
 

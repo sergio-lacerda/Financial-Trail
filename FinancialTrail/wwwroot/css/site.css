@@ -80,6 +80,20 @@ body {
     background-color: green;
 }
 
+.content-logo {
+    max-width: 350px;
+    border-radius: 10px;
+    background-color: #2d5516;
+    padding:10px 20px;
+    margin-bottom: 30px;
+}
+
+.content-FMP-logo {
+    max-width: 350px;
+    margin-bottom: 30px;
+}
+
+
 
 @media only screen and (max-width: 678px) {
     #logo {

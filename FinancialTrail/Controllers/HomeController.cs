@@ -13,6 +13,12 @@ namespace FinancialTrail.Controllers
             _api = new ApiCommand();
         }
 
+        public IActionResult Search(string inTicker)
+        {
+            ApiInfo._Ticker = inTicker.Trim().ToUpper();
+            return RedirectToAction("Index");
+        }
+
         public async Task<IActionResult> Index()
         {
             try
@@ -75,6 +81,11 @@ namespace FinancialTrail.Controllers
         }
 
         public IActionResult About()
+        {
+            return View();
+        }
+
+        public IActionResult Order()
         {
             return View();
         }
