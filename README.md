@@ -15,9 +15,9 @@ _**[Español]**_ Spanish content.
 
 ![Financial Trail Main Page](https://github.com/sergio-lacerda/Financial-Trail/blob/master/Preview/index.png "Financial Trail Main Page")
 
-![Financial Trail Intraday Indicators](https://github.com/sergio-lacerda/Financial-Trail/blob/master/Preview/intraday "Financial Trail Intraday Indicators")
+![Financial Trail Intraday Indicators](https://github.com/sergio-lacerda/Financial-Trail/blob/master/Preview/intraday.png "Financial Trail Intraday Indicators")
 
-![Financial Trail Dividends](https://github.com/sergio-lacerda/Financial-Trail/blob/master/Preview/dividends "Financial Trail Dividends")
+![Financial Trail Dividends](https://github.com/sergio-lacerda/Financial-Trail/blob/master/Preview/dividends.png "Financial Trail Dividends")
 
 ![Financial Trail Stock Historical Price](https://github.com/sergio-lacerda/Financial-Trail/blob/master/Preview/historical.png "Financial Trail Stock Historical Price")
 
