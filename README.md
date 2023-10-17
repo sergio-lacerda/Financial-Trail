@@ -2,11 +2,11 @@
 
 # Financial Trail - Indicators For Success
 
-_**[English]**_ English content. 
+<img height="12px" src="https://github.com/hampusborgos/country-flags/blob/main/png250px/us.png"/> Welcome to Financial Trail, a sample Financial Data Application designed to showcase how to consume financial data a REST API and process these informations to generate tables, charts, and indicators related to the stock market.
 
-_**[Português]**_ Portuguese content. 
+<img height="12px" src="https://github.com/hampusborgos/country-flags/blob/main/png250px/br.png"/> Bem-vindo ao Financial Trail, um exemplo de aplicativo de dados financeiros desenvolvido para mostrar como consumir dados financeiros em uma API REST e processar essas informações para gerar tabelas, gráficos e indicadores relacionados ao mercado de ações.
 
-_**[Español]**_ Spanish content.
+<img height="12px" src="https://github.com/hampusborgos/country-flags/blob/main/png250px/es.png"/> Bienvenido a Financial Trail, una aplicación de datos financieros de muestra diseñada para mostrar cómo consumir datos financieros en una API REST y procesar esta información para generar tablas, gráficos e indicadores relacionados con el mercado de valores.
 
 <br />
 
