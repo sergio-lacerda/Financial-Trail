@@ -2,29 +2,29 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="content-container ps-2 pe-2">
+<div class="row mx-2 mx-lg-0">
     <!-- Input to search/filter Stock Ticker -->
-    <form>
-        <div class="mb-4 mt-4 inputTicker">
+    <form class="p-0">
+        <div class="mb-4 mt-4 col col-12 col-lg-4">
             <label for="basic-url" class="form-label h5">Enter a ticker to search</label>
             <div class="mt-2 d-flex">
                 <div class="input-group">
                     <span class="input-group-text">Ticker</span>
                     <input name="inTicker" type="text" class="form-control text-uppercase">
                 </div>
-                <button asp-action="Search" class="btn btn-success ms-2 ps-3 pe-3 bg-green">Search</button>
+                <button asp-action="Search" class="btn btn-success ms-2 px-3 bg-green">Search</button>
             </div>
         </div>
     </form>
 
     <!-- Company profile information-->
-    <div class="pv-border mt-2 mb-3">
-        <div class="pt-3 pb-3 ps-2 pe-2 h5 d-flex align-items-baseline pv-border-title">
+    <div class="col col-12 pv-border my-3 p-0">
+        <div class="py-3 px-2 h5 d-flex align-items-baseline pv-border-title">
             <svg bootstrap-icon="Building" width="24" height="24" aria-label="Alarms"></svg>
             &nbsp; Company Profile
         </div>
         <div>
-            <div class="d-flex align-items-center mb-3 ps-2 pe-2 justify-content-center justify-content-lg-start">
+            <div class="d-flex align-items-center mb-3 px-2 justify-content-center justify-content-lg-start">
                 @{
                     CompanyProfile cp = ViewData["CompanyData"] as CompanyProfile;
 
@@ -39,7 +39,7 @@
                     }
                 }
             </div>
-            <div class="pb-3 ps-2 pe-2 text-center text-lg-start">
+            <div class="pb-3 px-2 text-center text-lg-start">
                 <b>Ticker:</b> <span>@cp.symbol</span>
                 <b class="ps-3">Country:</b> <span>@cp.country</span>
                 <b class="ps-3">Industry:</b> <span>@cp.industry</span>
@@ -53,8 +53,8 @@
     </div>
 
     <!-- Price (Intraday) chart -->
-    <div class="pv-border mt-2 mb-3">
-        <div class="pt-3 pb-3 ps-2 pe-2 h5 d-flex align-items-baseline pv-border-title">
+    <div class="col col-12 pv-border my-3 p-0">
+        <div class="py-3 px-2 h5 d-flex align-items-baseline pv-border-title">
             <svg bootstrap-icon="Coin" width="24" height="24" aria-label="Alarms"></svg>
             &nbsp; Intraday Indicators
         </div>
@@ -62,10 +62,10 @@
     </div>
 
     <!-- Dividends historical table and dividends by year chart -->
-    <div class="d-flex justify-content-between flex-column flex-lg-row mb-3">
+    <div class="justify-content-between row my-3 mx-0 p-0">
         <!-- Dividends historical -->
-        <div class="pv-border w25 me-2">
-            <div class="pt-3 pb-3 ps-2 pe-2 h5 d-flex align-items-baseline pv-border-title">
+        <div class="pv-border col col-12 p-0 col-lg-4">
+            <div class="py-3 px-2 h5 d-flex align-items-baseline pv-border-title">
                 <svg bootstrap-icon="PiggyBank" width="24" height="24" aria-label="Alarms"></svg>
                 &nbsp; Dividends Historical
             </div>
@@ -91,7 +91,7 @@
                                             string[] dateParts = payDay.Split("-");
                                             if (dateParts.Count() == 3)
                                                 payDay = $"{dateParts[1]}/{dateParts[2]}/{dateParts[0]}";
-                                            payDay = payDay.Length==0 ? "Not informed" : payDay;
+                                            payDay = payDay.Length == 0 ? "Not informed" : payDay;
                                         }
                                         @payDay
                                     </td>
@@ -108,19 +108,25 @@
             </table>
         </div>
 
+        <!-- y gutter when mobile -->
+        <div class="d-lg-none" style="min-height:32px;"></div>
+
         <!-- Dividends by Year -->
-        <div class="pv-border w74">
-            <div class="pt-3 pb-3 ps-2 pe-2 h5 d-flex align-items-baseline pv-border-title">
-                <svg bootstrap-icon="PiggyBank" width="24" height="24" aria-label="Alarms"></svg>
-                &nbsp; Dividends By Year
+        <div class="col col-12 col-lg-8 p-0 ps-lg-3">
+            <div class="pv-border me-lg-0">
+                <div class="py-3 px-2 h5 d-flex align-items-baseline pv-border-title">
+                    <svg bootstrap-icon="PiggyBank" width="24" height="24" aria-label="Alarms"></svg>
+                    &nbsp; Dividends By Year
+                </div>
+                <div class="p-2 pe-lg-0"><div id="dividendsByYear_chart"></div></div>
             </div>
-            <div class="p-2"><div id="dividendsByYear_chart"></div></div>
         </div>
+
     </div>
 
     <!-- Stock Historical Price -->
-    <div class="pv-border mt-2 mb-3">
-        <div class="pt-3 pb-3 ps-2 pe-2 h5 d-flex align-items-baseline pv-border-title">
+    <div class="col col-12 pv-border my-3 p-0">
+        <div class="py-3 px-2 h5 d-flex align-items-baseline pv-border-title">
             <svg bootstrap-icon="GraphUpArrow" width="24" height="24" aria-label="Alarms"></svg>
             &nbsp; Stock Historical Price
         </div>

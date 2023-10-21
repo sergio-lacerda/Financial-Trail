@@ -23,18 +23,14 @@ body {
 
 /*------------------ new CSS -----------------------*/
 
+nav {
+    background-color: #2d5516;
+}
+
 #logo {
     height: 65px;
 }
 
-.content-container {
-    /*background-color: crimson;*/
-    width: 100%;
-}
-
-.inputTicker {
-    width: 35%;
-}
 
 .pv-border {
     border-width: 1px;
@@ -50,16 +46,6 @@ body {
 
 .yellow-hover:hover {
     color: yellow !important;
-}
-
-.w25 {
-    width: 25%;
-    min-height: 400px;
-}
-
-.w74 {
-    width: 74%;
-    min-height: 400px;
 }
 
 #price_chart, #historicalprice_chart, #dividendsByYear_chart {
@@ -104,19 +90,15 @@ body {
         width: 100%;
     }
 
-
-
-
-
-
-    .w25 {
-        width: 100%;
-        margin-bottom: 10px;        
-        min-height: 350px;
+    footer {
+        font-size: 10px;
     }
 
-    .w74 {
-        width: 100%;
-        min-height: 500px;
+    .content-FMP-logo {
+        max-width: 80%;
+    }
+
+    .content-logo {
+        max-width: 80%;      
     }
 }
