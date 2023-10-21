@@ -32,7 +32,7 @@
 - Linq
 - Lambda Expressions
 - HTML 5
-- CSS 3 (not fully responsive client interface sample)
+- CSS 3 
 - Bootstrap
 - Bootstrap Icons ASP.Net Core
 - Javascript / JQuery
