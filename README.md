@@ -69,7 +69,7 @@ In order to run this software, you'll be required to obtain your own Financial M
 
 It's easy to get started:
 
-- Sign Up and choose a plan: Register on the FMP website and select a suitable plan that meets your requirements. Through this link, you can get 15% discount: <a href="https://intelligence.financialmodelingprep.com/pricing-plans?couponCode=sergio" target="_blank" style="text-decoration:none;color:green">Get your API Key</a> 
+- Sign Up and choose a plan: Register on the FMP website and select a suitable plan that meets your requirements. Through this link, you can get 15% discount: <a href="https://intelligence.financialmodelingprep.com/pricing-plans?couponCode=sergio" target="_blank" style="text-decoration:none;color:green">Get your API Key</a> [Get your API Key](https://intelligence.financialmodelingprep.com/pricing-plans?couponCode=sergio) 
 - Obtain API Key: Once you're subscribed, you'll receive your unique API key.
 - With your API key in hand, you can integrate FMP's financial data into your applications, research, or projects to stay informed and up-to-date with the financial landscape.
 
