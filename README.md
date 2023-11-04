@@ -21,6 +21,8 @@
 
 ![Financial Trail Stock Historical Price](https://github.com/sergio-lacerda/Financial-Trail/blob/master/Preview/historical.png "Financial Trail Stock Historical Price")
 
+![Financial Trail P/E Ratio](https://github.com/sergio-lacerda/Financial-Trail/blob/master/Preview/historical.png "Financial Trail P/E Ratio")
+
 <br />
 
 ## Technologies 

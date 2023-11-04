@@ -176,3 +176,64 @@ async function drawColumnChart() {
     let chart = new google.visualization.ColumnChart(document.getElementById("dividendsByYear_chart"));
     chart.draw(view, options);
 }
+
+
+
+/***************** Getting 5 Years P/E Ratio versus Average Price Data ********************/
+async function get5YPERatio() {
+    let _PERatioByYear = [['Year', 'P/E Ratio', 'Avg Price'], ['No data available', 0, 0]];
+
+    try {
+        const response = await $.ajax({
+            type: "GET",
+            url: "/Home/Get5YPERatio",
+            dataType: "json"
+        });
+    
+        if (response != null && response.length > 0) {
+            _PERatioByYear = [];
+
+            let limit = response.length > 6 ? 6 : response.length;
+
+            for (let i = 0; i < limit; i++) {
+                _PERatioByYear.push(
+                    [
+                        response[i]['calendarYear'],
+                        response[i]['peRatio'], 
+                        response[i]['avgPrice']
+                    ]
+                );
+            }
+
+            _PERatioByYear.reverse();
+            _PERatioByYear.unshift(['Year', 'P/E Ratio', 'Avg Price']);
+        }
+        return _PERatioByYear;
+
+
+    } catch (error) {
+        _PERatioByYear = [['Year', 'P/E Ratio', 'Avg Price'], ['No data available', 0, 0]];
+        return _PERatioByYear;
+    }
+}
+
+
+/***************** Drawing 5 Years P/E Ratio versus Average Price Chart ********************/
+google.charts.load('current', { 'packages': ['corechart'] });
+google.charts.setOnLoadCallback(drawPERatioChart);
+
+async function drawPERatioChart() {
+    // Some raw data (not necessarily accurate)
+    var data = google.visualization.arrayToDataTable(await get5YPERatio());
+    
+    var options = {
+        colors: ['green', '#144414'],
+        seriesType: 'bars',
+        series: { 1: { type: 'line' } }
+    };
+
+    var chart = new google.visualization.ComboChart(document.getElementById('peratio_chart'));
+    chart.draw(data, options);
+}
+
+

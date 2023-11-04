@@ -5,13 +5,13 @@ namespace FinancialTrail.Models
     public class ApiCommand
     {
         private readonly string _uriBase;
-        private readonly string _apiKey;        
+        private readonly string _apiKey;
         private string Ticker;
 
-        public ApiCommand() 
+        public ApiCommand()
         {
             _uriBase = ApiInfo._ApiUriBase;
-            _apiKey = ApiInfo._ApiKey;             
+            _apiKey = ApiInfo._ApiKey;
         }
 
         public async Task<CompanyProfile> getCompanyProfile()
@@ -118,5 +118,70 @@ namespace FinancialTrail.Models
             return new HistoricalPriceBase();
         }
 
+        public async Task<IEnumerable<KeyMetrics>> getKeyMetrics()
+        {
+            Ticker = ApiInfo._Ticker;
+            HttpClient _httpClient = new HttpClient();
+            string endPoint = _uriBase + $"/v3/key-metrics/{Ticker}?period=annual&apikey={_apiKey}";
+
+            _httpClient.BaseAddress = new Uri(_uriBase);
+            _httpClient.DefaultRequestHeaders.Accept.Clear();
+            _httpClient.DefaultRequestHeaders.Accept.Add(
+                new MediaTypeWithQualityHeaderValue("application/json")
+            );
+
+            try
+            {
+                HttpResponseMessage response = await _httpClient.GetAsync(endPoint);
+                if (response.IsSuccessStatusCode)
+                {
+                    var keyMetrics = await response.Content.ReadFromJsonAsync<IEnumerable<KeyMetrics>>();
+                    return keyMetrics;
+                }
+            }
+            catch (Exception) { }
+
+            return new List<KeyMetrics>();
+        }
+
+        public async Task<IEnumerable<PriceAvgByYear>> getHistoricalPriceAvgByYear()
+        {
+            Ticker = ApiInfo._Ticker;
+            HttpClient _httpClient = new HttpClient();
+            string endPoint = _uriBase + $"/v3/historical-price-full/{Ticker}?apikey={_apiKey}";
+
+            _httpClient.BaseAddress = new Uri(_uriBase);
+            _httpClient.DefaultRequestHeaders.Accept.Clear();
+            _httpClient.DefaultRequestHeaders.Accept.Add(
+                new MediaTypeWithQualityHeaderValue("application/json")
+            );
+
+            try
+            {
+                HttpResponseMessage response = await _httpClient.GetAsync(endPoint);
+                if (response.IsSuccessStatusCode)
+                {
+                    var histPriceBase = await response.Content.ReadFromJsonAsync<HistoricalPriceBase>();
+                    var historical = histPriceBase.Historical.ToList();
+
+                    var avgByYear = historical                       
+                        .GroupBy(h => h.Date.Substring(0, 4))
+                        .Select(
+                            item => new PriceAvgByYear
+                            {
+                                Year = item.Key,
+                                AvgPrice = item.Average(v => v.Close)
+                            }
+                        ).ToList();
+
+
+
+                    return avgByYear;
+                }
+            }
+            catch (Exception) { }
+
+            return new List<PriceAvgByYear>();
+        }
     }
 }

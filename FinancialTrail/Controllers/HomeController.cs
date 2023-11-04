@@ -75,6 +75,27 @@ namespace FinancialTrail.Controllers
             return Json(data);
         }
 
+        public async Task<JsonResult> Get5YPERatio()
+        {
+            List<PERatioChartData> charData = new List<PERatioChartData>();            
+            var keyMetrics = await _api.getKeyMetrics();
+            var avgPrices = await _api.getHistoricalPriceAvgByYear();
+
+            foreach (var metric in keyMetrics) 
+            {
+                var price = avgPrices.FirstOrDefault(p => p.Year.Equals(metric.CalendarYear));
+               
+                charData.Add(new PERatioChartData
+                    {
+                        CalendarYear = metric.CalendarYear,
+                        PeRatio = metric.PeRatio,
+                        AvgPrice = price != null ? price.AvgPrice : 0
+                    }
+                );            
+            }
+            return Json(charData);
+        }
+
         public IActionResult Privacy()
         {
             return View();
@@ -89,9 +110,6 @@ namespace FinancialTrail.Controllers
         {
             return View();
         }
-
-
-
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
