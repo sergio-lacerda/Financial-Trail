@@ -4,15 +4,25 @@
 
 ## 📊 Transforming Financial Data into Insights
 
-<img height="12px" src="https://github.com/hampusborgos/country-flags/blob/main/png250px/us.png"/> Welcome to Financial Trail, a sample Financial Data Application designed to showcase how to consume financial data a REST API and process these informations to generate tables, charts, and indicators related to the stock market.
+Financial Trail is a sample financial data application designed to demonstrate how to consume data from a REST API and transform raw market data into meaningful indicators and visual insights.
 
-<img height="12px" src="https://github.com/hampusborgos/country-flags/blob/main/png250px/br.png"/> Bem-vindo ao Financial Trail, um exemplo de aplicativo de dados financeiros desenvolvido para mostrar como consumir dados financeiros em uma API REST e processar essas informações para gerar tabelas, gráficos e indicadores relacionados ao mercado de ações.
+The application allows users to input a stock ticker and explore processed financial data through charts and tables.
 
-<img height="12px" src="https://github.com/hampusborgos/country-flags/blob/main/png250px/es.png"/> Bienvenido a Financial Trail, una aplicación de datos financieros de muestra diseñada para mostrar cómo consumir datos financieros en una API REST y procesar esta información para generar tablas, gráficos e indicadores relacionados con el mercado de valores.
+## 🌎 About the Project
 
-<br />
+Financial Trail is a practical example of consuming financial data from an external API, processing it and presenting it through tables, charts, and indicators.
 
-## Screenshots 
+## 🚀 Features
+
+- 📊 Interactive financial charts using Google Charts
+- 📈 Multiple stock market indicators
+- 🔄 Real-time data consumption from external API
+- 🧮 Data transformation using LINQ and Lambda Expressions
+- 🌐 Clean and simple MVC architecture
+- 💡 Focus on data processing and visualization
+- 📊 Available Indicators
+
+## 🖼️ Screenshots
 <br />
 
 ![Financial Trail Main Page](https://github.com/sergio-lacerda/Financial-Trail/blob/master/Preview/index.png "Financial Trail Main Page")
