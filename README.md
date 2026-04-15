@@ -34,8 +34,8 @@ Given a stock ticker, the application fetches raw data from the Financial Modeli
   - Line chart showing daily stock price variation over a selected period (typically 1 year)
 - 📊 P/E Ratio vs Price (5 Years)
   - Combined chart:
-    --Columns: yearly P/E ratio
-    --Line: average stock price per year
+    -Columns: yearly P/E ratio
+    -Line: average stock price per year
 
 ## 🖼️ Screenshots
 <br />
