@@ -2,6 +2,8 @@
 
 # Financial Trail - Indicators For Success
 
+## 📊 Transforming Financial Data into Insights
+
 <img height="12px" src="https://github.com/hampusborgos/country-flags/blob/main/png250px/us.png"/> Welcome to Financial Trail, a sample Financial Data Application designed to showcase how to consume financial data a REST API and process these informations to generate tables, charts, and indicators related to the stock market.
 
 <img height="12px" src="https://github.com/hampusborgos/country-flags/blob/main/png250px/br.png"/> Bem-vindo ao Financial Trail, um exemplo de aplicativo de dados financeiros desenvolvido para mostrar como consumir dados financeiros em uma API REST e processar essas informações para gerar tabelas, gráficos e indicadores relacionados ao mercado de ações.
