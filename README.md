@@ -24,18 +24,18 @@ Financial Trail is a practical example of consuming financial data from an exter
 
 Given a stock ticker, the application fetches raw data from the Financial Modeling Prep API and processes it into structured financial insights:
 
-📈 Intraday Indicators
-- Candlestick chart representing intraday price movements
-💰 Dividends History
-- Table displaying the last 8 dividend payments (date and value)
-📅 Dividends by Year
-- Column chart showing total dividends paid per year (last 10 years)
-📉 Historical Prices
-- Line chart showing daily stock price variation over a selected period (typically 1 year)
-📊 P/E Ratio vs Price (5 Years)
-- Combined chart:
---Columns: yearly P/E ratio
---Line: average stock price per year
+- 📈 Intraday Indicators
+  - Candlestick chart representing intraday price movements
+- 💰 Dividends History
+  - Table displaying the last 8 dividend payments (date and value)
+- 📅 Dividends by Year
+  - Column chart showing total dividends paid per year (last 10 years)
+- 📉 Historical Prices
+  - Line chart showing daily stock price variation over a selected period (typically 1 year)
+- 📊 P/E Ratio vs Price (5 Years)
+  - Combined chart:
+    --Columns: yearly P/E ratio
+    --Line: average stock price per year
 
 ## 🖼️ Screenshots
 <br />
