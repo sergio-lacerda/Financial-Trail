@@ -52,59 +52,88 @@ Given a stock ticker, the application fetches raw data from the Financial Modeli
 
 <br />
 
-## Technologies 
+## 🧱 Architecture
+
+This project follows a standard ASP.NET Core MVC architecture, focusing on clarity and separation of concerns rather than complexity.
+
+- Controllers handle user inputs (stock ticker) and requests
+- Model manages communication with the external API (FMP)
+- Data processing is performed using LINQ and Lambda Expressions
+- Views render charts and tables using Google Charts
+
+## 🛠️ Technologies 
 
 - .Net Core 7
 - C#
 - API REST
 - MVC
-- Linq
-- Lambda Expressions
-- HTML 5
-- CSS 3 
+- Linq & Lambda Expressions
+- HTML 5 / CSS 3 
 - Bootstrap
 - Bootstrap Icons ASP.Net Core
 - Javascript / JQuery
 - Google Charts
 
-<br />
+## ⚙️ Installation
 
-## Installation
-
-Please, follow the instructions below in order to install and run this project:
-
+Please, follow the steps below to run the project locally:
     
 ### 1. Clone the repository
 
 ```console
 git clone https://github.com/sergio-lacerda/Financial-Trail.git
 ```
-
    
 ### 2. Settings for the project
 
-- **appsettings.json:** Edit the key "FMP_API_Key" and configure your personal API Key for the Financial Modeling Prep (FMP) API.
+- Edit the **appsettings.json** file and set your Financial Modeling Prep (FMP) API key.
 
 ```json
 "FMP_API_Key": "Your API Key goes here" 
 ```
-
    
-### 3. How to obtain a personal API Key
+### 3. 🔑 How to Obtain an API Key
 
-All data used in this application project is sourced from the Financial Modeling Prep (FMP) API which is the sole owner of the financial data API and is responsible for the accuracy and reliability of the information provided through it.
+All financial data used in this project is provided by the Financial Modeling Prep (FMP) API.
 
-In order to run this software, you'll be required to obtain your own Financial Modeling Prep (FMP) API Key. I encourage you to leverage the power of the Financial Modeling Prep (FMP) API also in your own projects.
+To use the application, you need your own API key:
 
-It's easy to get started:
+- Sign up on the FMP website and choose a plan  [Get your API Key](https://intelligence.financialmodelingprep.com/pricing-plans)
+- Receive your personal API key
+- Add it to the project configuration as described above
 
-- Sign Up and choose a plan: Register on the FMP website and select a suitable plan that meets your requirements. Through this link, you can get 15% discount: :gift: [Get your API Key](https://intelligence.financialmodelingprep.com/pricing-plans?couponCode=sergio) :gift:
-- Obtain API Key: Once you're subscribed, you'll receive your unique API key.
-- With your API key in hand, you can integrate FMP's financial data into your applications, research, or projects to stay informed and up-to-date with the financial landscape.
+## 🎯 Use Cases
 
-<br />
+This project is useful for:
 
-## Usage instructions
+- Learning how to consume REST APIs in .NET
+- Practicing data transformation with LINQ
+- Building financial dashboards
+- Understanding how to turn raw data into visual insights
+- Demonstrating full-stack development skills in a portfolio
 
-- Financial Trail, is a sample Financial Data Application designed to showcase how to consume financial data a REST API and process these informations to generate tables, charts, and indicators related to the stock market.
-- This is a non-commercial application, designed as an example only and to be used as is. This software is not designed for integrated use with any other solution, and there is no guarantee that the information will be available or that it will be compatible with users' specific needs.
+## ⚠️ Disclaimer
+
+This is a non-commercial sample application intended for educational purposes only.
+
+- Not intended for production use
+- No guarantee of data accuracy
+- Not designed for integration with other systems
+
+All financial data is owned and provided by Financial Modeling Prep (FMP).
+
+
+## 🤝 Contributing
+
+Feel free to:
+
+- Fork this repository
+- Open issues
+- Submit pull requests
+- ⭐ Support
+
+If you find this project useful, consider giving it a star on GitHub!
+
+## 📄 License
+
+This project is licensed under the MIT License.
