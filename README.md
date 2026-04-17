@@ -63,16 +63,25 @@ This project follows a standard ASP.NET Core MVC architecture, focusing on clari
 
 ## 🛠️ Technologies 
 
-- .Net Core 7
-- C#
-- API REST
-- MVC
-- Linq & Lambda Expressions
-- HTML 5 / CSS 3 
-- Bootstrap
-- Bootstrap Icons ASP.Net Core
-- Javascript / JQuery
-- Google Charts
+### Backend
+
+![.Net](https://shields.io)
+![C#](https://shields.io)
+![ASP.NET Core](https://shields.io)
+
+- **.NET Core 7** using **MVC** architecture.
+- **REST API** development.
+- Queries with **LINQ & Lambda Expressions**.
+
+### Frontend
+![HTML5](https://shields.io)
+![CSS3](https://shields.io)
+![JavaScript](https://shields.io)
+![Bootstrap](https://shields.io)
+
+- **UI/UX:** Responsive design with **Bootstrap** and **Bootstrap Icons**.
+- **Interactivity:** DOM manipulation using **JavaScript** and **jQuery**.
+- **Dashboards:** Financial data visualization with **Google Charts**.
 
 ## ⚙️ Installation
 
