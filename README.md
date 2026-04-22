@@ -112,7 +112,7 @@ To use the application, you need your own API key:
 - Add it to the project configuration as described above
 
 ### 4. Run the project
-With the solution opened in Visual Studio, click "Run"
+Open the solution file (.sln) in Visual Studio and press F5 or click "Run".
 
 ## 🎯 Use Cases
 
