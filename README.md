@@ -65,19 +65,19 @@ This project follows a standard ASP.NET Core MVC architecture, focusing on clari
 
 ### Backend
 
-![.Net](https://shields.io)
-![C#](https://shields.io)
-![ASP.NET Core](https://shields.io)
+![.NET](https://img.shields.io/badge/.NET-512BD4?style=for-the-badge&logo=dotnet&logoColor=white)
+![C#](https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white)
+![ASP.NET Core](https://img.shields.io/badge/ASP.NET%20Core-5C2D91?style=for-the-badge&logo=.net&logoColor=white)
 
 - **.NET Core 7** using **MVC** architecture.
 - **REST API** development.
 - Queries with **LINQ & Lambda Expressions**.
 
 ### Frontend
-![HTML5](https://shields.io)
-![CSS3](https://shields.io)
-![JavaScript](https://shields.io)
-![Bootstrap](https://shields.io)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![Bootstrap](https://img.shields.io/badge/Bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white)
 
 - **UI/UX:** Responsive design with **Bootstrap** and **Bootstrap Icons**.
 - **Interactivity:** DOM manipulation using **JavaScript** and **jQuery**.
