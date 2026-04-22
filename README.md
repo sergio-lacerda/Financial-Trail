@@ -111,6 +111,9 @@ To use the application, you need your own API key:
 - Receive your personal API key
 - Add it to the project configuration as described above
 
+### 4. Run the project
+With the solution opened in Visual Studio, click "Run"
+
 ## 🎯 Use Cases
 
 This project is useful for:
